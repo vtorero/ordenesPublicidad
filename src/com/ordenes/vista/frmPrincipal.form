@@ -9,14 +9,14 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="fileMenu">
           <Properties>
-            <Property name="mnemonic" type="int" value="102"/>
+            <Property name="mnemonic" type="int" value="77"/>
             <Property name="text" type="java.lang.String" value="Mantenimientos"/>
             <Property name="name" type="java.lang.String" value="mnMantenimientos" noResource="true"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="openMenuItem">
               <Properties>
-                <Property name="mnemonic" type="int" value="111"/>
+                <Property name="mnemonic" type="int" value="67"/>
                 <Property name="text" type="java.lang.String" value="Clientes"/>
                 <Property name="name" type="java.lang.String" value="mnClientes" noResource="true"/>
               </Properties>

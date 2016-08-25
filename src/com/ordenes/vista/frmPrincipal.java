@@ -54,11 +54,11 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         menuBar.setToolTipText("Sistema de Ordenes");
 
-        fileMenu.setMnemonic('f');
+        fileMenu.setMnemonic('M');
         fileMenu.setText("Mantenimientos");
         fileMenu.setName("mnMantenimientos"); // NOI18N
 
-        openMenuItem.setMnemonic('o');
+        openMenuItem.setMnemonic('C');
         openMenuItem.setText("Clientes");
         openMenuItem.setName("mnClientes"); // NOI18N
         openMenuItem.addActionListener(new java.awt.event.ActionListener() {
