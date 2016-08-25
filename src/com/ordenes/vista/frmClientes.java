@@ -31,7 +31,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         contenedor = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtRazon = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -77,7 +77,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Razón Social:");
 
-        jTextField1.setName("TXT_NOMBRE"); // NOI18N
+        txtRazon.setName("TXT_NOMBRE"); // NOI18N
 
         jLabel2.setText("Representante:");
 
@@ -161,7 +161,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
                                 .addGap(1, 1, 1)
                                 .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtRazon, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorLayout.createSequentialGroup()
@@ -181,7 +181,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
                 .addGap(20, 20, 20)
                 .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(contenedorLayout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtRazon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -284,11 +284,11 @@ public class frmClientes extends javax.swing.JInternalFrame {
     public javax.swing.JTable jTable1;
     public javax.swing.JTextArea jTextArea1;
     public javax.swing.JTextArea jTextArea2;
-    public javax.swing.JTextField jTextField1;
     public javax.swing.JTextField jTextField2;
     public javax.swing.JTextField jTextField3;
     public javax.swing.JTextField jTextField4;
     public javax.swing.JTextField jTextField5;
     public javax.swing.JTextField jTextField6;
+    public javax.swing.JTextField txtRazon;
     // End of variables declaration//GEN-END:variables
 }

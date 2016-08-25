@@ -40,11 +40,19 @@ public class ControladorCliente implements ActionListener {
         
         for (int i = 0; i < numRegistros; i++) {
             columna[0] = clienteDao.listar().get(i).getRazonsocial();
-            
+            columna[1] = clienteDao.listar().get(i).getRuc();
+            columna[2] = clienteDao.listar().get(i).getTelefono();
+            columna[3] = clienteDao.listar().get(i).getDireccion();
+            modeloT.addRow(columna);
         }
     
     }
     
     public void actionPerformed(ActionEvent e){
+        if(e.getSource()==vistaCrud.botonregistrar){
+        String nombre = vistaCrud
+        
+        
+        }
     }
 }
