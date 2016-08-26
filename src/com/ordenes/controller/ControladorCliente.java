@@ -67,6 +67,7 @@ public class ControladorCliente implements ActionListener {
                 c.setRuc(vistaCrud.txtRuc.getText());
                 c.setTelefono(vistaCrud.txtTelefono.getText());
                 clienteDao.registrar(c);
+                
                 LlenarTabla(vistaCrud.DataClientes);
                 JOptionPane.showMessageDialog(vistaCrud,"Se registro un cliente");
             } catch (Exception ex) {
