@@ -18,7 +18,7 @@ public class Dao {
    
        try {
            Class.forName("com.mysql.jdbc.Driver");
-           cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sistemaordenes?user=root");
+           cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenespublicidad?user=root");
            
        } catch (Exception e) {
            throw e;

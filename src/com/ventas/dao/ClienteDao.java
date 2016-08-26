@@ -20,25 +20,17 @@ public class ClienteDao extends Dao {
     public void registrar(Cliente cli) throws Exception{
        try {
        this.Conectar();
-           PreparedStatement st = this.getCn().prepareStatement("`C_CLIENTE`,\n" +
-"             `RAZON_SOCIAL`,\n" +
-"             `CONTACTO`,\n" +
-"             `RPT_LEGAL`,\n" +
-"             `RPT_DNI`,\n" +
-"             `RPT_DIRECCION`,\n" +
-"             `RUC`,\n" +
-"             `DIRECCION`,\n" +
-"             `TELEFONO`,\n" +
-"             `F_CREACION`,\n" +
-"             `USUARIO`) values(?,?,?,?,?,?,?,?,now(),user)");
-           st.setString(1,cli.getContacto());
-           st.setString(2, cli.getDireccion());
-           st.setString(3, cli.getRazonsocial());
-           st.setString(4, cli.getRptdireccion());
-           st.setString(5, cli.getRptdni());
-           st.setString(6, cli.getRptlegal());
-           st.setString(7, cli.getRuc());
+           PreparedStatement st = this.getCn().prepareStatement("INSERT INTO ORD_CLIENTES(RAZON_SOCIAL,CONTACTO,RPT_LEGAL,RPT_DNI,RPT_DIRECCION,RUC" +
+            "DIRECCION,TELEFONO,F_CREACION,USUARIO) values(?,?,?,?,?,?,?,?,now(),'USUARIO')");
+           st.setString(1, cli.getRazonsocial());
+           st.setString(2,cli.getContacto());
+           st.setString(3, cli.getRptlegal());
+           st.setString(4, cli.getRptdni());
+           st.setString(5, cli.getRptdireccion());
+           st.setString(6, cli.getRuc());
+           st.setString(7, cli.getDireccion());
            st.setString(8, cli.getTelefono());
+           
            st.executeUpdate();
        } catch (Exception e) {
        throw e;
