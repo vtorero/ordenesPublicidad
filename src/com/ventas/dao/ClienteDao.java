@@ -21,7 +21,7 @@ public class ClienteDao extends Dao {
        try {
        this.Conectar();
            PreparedStatement st = this.getCn().prepareStatement("INSERT INTO ORD_CLIENTES(RAZON_SOCIAL,CONTACTO,RPT_LEGAL,RPT_DNI,RPT_DIRECCION,RUC" +
-            "DIRECCION,TELEFONO,F_CREACION,USUARIO) values(?,?,?,?,?,?,?,?,now(),'USUARIO')");
+            ",DIRECCION,TELEFONO,F_CREACION,USUARIO) values(?,?,?,?,?,?,?,?,now(),'USUARIO')");
            st.setString(1, cli.getRazonsocial());
            st.setString(2,cli.getContacto());
            st.setString(3, cli.getRptlegal());
