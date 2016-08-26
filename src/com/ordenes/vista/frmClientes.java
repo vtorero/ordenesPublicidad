@@ -28,26 +28,26 @@ public class frmClientes extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        DataClientes = new javax.swing.JTable();
         contenedor = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtRazon = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtRepresentante = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtContacto = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtDniRpt = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtDireccionRpt = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtRuc = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
         botonregistrar = new javax.swing.JButton();
         botoneliminar = new javax.swing.JButton();
         botonactualizar = new javax.swing.JButton();
@@ -60,7 +60,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         setToolTipText("");
         setName(""); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        DataClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -71,7 +71,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
                 "Razon Social", "Ruc", "Telefono", "Fecha"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(DataClientes);
 
         contenedor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         contenedor.setToolTipText("");
@@ -82,26 +82,26 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Representante:");
 
-        jTextField2.setName("TXT_REPRESENTANTE"); // NOI18N
+        txtRepresentante.setName("TXT_REPRESENTANTE"); // NOI18N
 
         jLabel3.setText("Contácto:");
 
-        jTextField3.setName("TXT_CONTACTO"); // NOI18N
+        txtContacto.setName("TXT_CONTACTO"); // NOI18N
 
         jLabel4.setText("DNI Rpt:");
 
-        jTextField4.setName("TXT_DNI"); // NOI18N
+        txtDniRpt.setName("TXT_DNI"); // NOI18N
 
         jLabel5.setText("Dirección Rpt:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setName("TXT_DIRECCION_RPT"); // NOI18N
-        jScrollPane2.setViewportView(jTextArea1);
+        txtDireccionRpt.setColumns(20);
+        txtDireccionRpt.setRows(5);
+        txtDireccionRpt.setName("TXT_DIRECCION_RPT"); // NOI18N
+        jScrollPane2.setViewportView(txtDireccionRpt);
 
         jLabel6.setText("RUC:");
 
-        jTextField5.setName("TXT_RUC"); // NOI18N
+        txtRuc.setName("TXT_RUC"); // NOI18N
 
         jLabel7.setText("Dirección:");
 
@@ -111,7 +111,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Teléfono:");
 
-        jTextField6.setName("TXT_TELEFONO"); // NOI18N
+        txtTelefono.setName("TXT_TELEFONO"); // NOI18N
 
         botonregistrar.setMnemonic('R');
         botonregistrar.setText("Registrar");
@@ -155,16 +155,16 @@ public class frmClientes extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtRepresentante, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtContacto, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, contenedorLayout.createSequentialGroup()
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDniRpt, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, contenedorLayout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtRuc, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtRazon, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -188,17 +188,17 @@ public class frmClientes extends javax.swing.JInternalFrame {
                         .addComponent(txtRazon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtContacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRepresentante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDniRpt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel4)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +209,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtRuc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +218,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1))
                 .addGap(5, 5, 5)
                 .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
@@ -271,6 +271,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botonregistrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JTable DataClientes;
     public javax.swing.JButton botonactualizar;
     public javax.swing.JButton botoneliminar;
     public javax.swing.JButton botonnmuevo;
@@ -288,14 +289,13 @@ public class frmClientes extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    public javax.swing.JTable jTable1;
-    public javax.swing.JTextArea jTextArea1;
     public javax.swing.JTextArea jTextArea2;
-    public javax.swing.JTextField jTextField2;
-    public javax.swing.JTextField jTextField3;
-    public javax.swing.JTextField jTextField4;
-    public javax.swing.JTextField jTextField5;
-    public javax.swing.JTextField jTextField6;
+    public javax.swing.JTextField txtContacto;
+    public javax.swing.JTextArea txtDireccionRpt;
+    public javax.swing.JTextField txtDniRpt;
     public javax.swing.JTextField txtRazon;
+    public javax.swing.JTextField txtRepresentante;
+    public javax.swing.JTextField txtRuc;
+    public javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
