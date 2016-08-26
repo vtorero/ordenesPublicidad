@@ -5,7 +5,7 @@
  */
 package com.ordenes.vista;
 
-import com.ventas.controller.ControladorCliente;
+import com.ordenes.controller.ControladorCliente;
 import com.ventas.dao.ClienteDao;
 import java.util.logging.Level;
 import java.util.logging.Logger;

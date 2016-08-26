@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ventas.controller;
+package com.ordenes.controller;
 
 import com.ordenes.modelo.Cliente;
 import com.ordenes.vista.frmClientes;
@@ -56,7 +56,6 @@ public class ControladorCliente implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e){
-
         if(e.getSource() == vistaCrud.botonregistrar){
             try {
                 Cliente c = new Cliente();
