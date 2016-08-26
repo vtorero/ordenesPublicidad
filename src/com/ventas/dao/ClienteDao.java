@@ -45,19 +45,20 @@ public List<Cliente> listar() throws Exception{
    
        try {
            this.Conectar();
-           PreparedStatement st = this.getCn().prepareCall("SELECT cCod,cRuc,cRzS,cDir,cLug,cMap,cFnc,cTl1,cTl2,cCl1,cCl2,cCe1,cCe2,cFio,cCat,cPds,vCod,cFot FROM cliente");
+           PreparedStatement st = this.getCn().prepareCall("SELECT C_CLIENTE,RAZON_SOCIAL,CONTACTO,RPT_LEGAL,RPT_DNI,RPT_DIRECCION,RUC,DIRECCION,TELEFONO,F_CREACION,USUARIO FROM ord_clientes");
            rs = st.executeQuery();
            lista = new ArrayList<>();
            while(rs.next()){
          Cliente cli = new Cliente();
-         cli.setContacto(rs.getString("cCod"));
-          cli.setDireccion(rs.getString("cRuc"));
-          cli.setRazonsocial(rs.getString("cRzS"));
-          cli.setRptdireccion(rs.getString("cDir"));
-          cli.setRptdni(rs.getString("cLug"));
-          cli.setRptlegal(rs.getString("cMap"));
-          cli.setRuc(rs.getString("cFnc"));
-          cli.setTelefono(rs.getString("cTl1"));
+         cli.setC_cliente(rs.getString("C_CLIENTE"));
+         cli.setRazonsocial(rs.getString("RAZON_SOCIAL"));
+         cli.setContacto(rs.getString("CONTACTO"));
+         cli.setRptlegal(rs.getString("RPT_LEGAL"));
+         cli.setRptdni(rs.getString("RPT_DNI"));
+         cli.setRptdireccion(rs.getString("RPT_DIRECCION"));
+         cli.setRuc(rs.getString("RUC"));
+         cli.setDireccion(rs.getString("DIRECCION"));
+         cli.setTelefono(rs.getString("TELEFONO"));
           lista.add(cli);
            }
        } catch (Exception e) {
