@@ -50,7 +50,7 @@ public class ControladorCliente implements ActionListener {
     
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==vistaCrud.botonregistrar){
-        String nombre = vistaCrud
+        
         
         
         }
