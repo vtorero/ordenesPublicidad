@@ -5,6 +5,10 @@
  */
 package com.ordenes.vista;
 
+import com.ventas.controller.ControladorCliente;
+import com.ventas.dao.ClienteDao;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 
 /**
@@ -149,7 +153,14 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-        frmClientes frm = new frmClientes();
+   frmClientes frm = new frmClientes();
+        ClienteDao clie = new ClienteDao();
+        ControladorCliente control = new ControladorCliente(frm, clie);
+        try {
+            control.LlenarTabla(frm.DataClientes);
+        } catch (Exception ex) {
+            Logger.getLogger(frmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.desktopPane.add(frm);
         frm.show();
     }//GEN-LAST:event_openMenuItemActionPerformed
