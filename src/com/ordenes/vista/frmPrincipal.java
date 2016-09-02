@@ -10,6 +10,7 @@ import com.ventas.dao.ClienteDao;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -153,7 +154,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         ClienteDao clie = new ClienteDao();
         ControladorCliente control = new ControladorCliente(frm, clie);
         try {
-            control.LlenarTabla(frm.DataClientes);
+            //control.LlenarTabla(frm.DataClientes);
         } catch (Exception ex) {
             Logger.getLogger(frmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }

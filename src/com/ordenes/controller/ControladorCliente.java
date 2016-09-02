@@ -43,7 +43,7 @@ public class ControladorCliente implements ActionListener {
         modeloT.addColumn("Dirección");
         Object[] columna = new Object[5];
         int numRegistros = clienteDao.listar().size();
-        
+       
         for (int i = 0; i < numRegistros; i++) {
             columna[0] = clienteDao.listar().get(i).getRazonsocial();
             columna[1] = clienteDao.listar().get(i).getRuc();
@@ -52,6 +52,7 @@ public class ControladorCliente implements ActionListener {
             modeloT.addRow(columna);
         }
     
+    
     }
     
     @Override
@@ -59,6 +60,7 @@ public class ControladorCliente implements ActionListener {
         if(e.getSource() == vistaCrud.botonregistrar){
             try {
                 Cliente c = new Cliente();
+                
                 c.setRazonsocial(vistaCrud.txtRazon.getText());
                 c.setContacto(vistaCrud.txtContacto.getText());
                 c.setRptlegal(vistaCrud.txtRepresentante.getText());
@@ -66,10 +68,15 @@ public class ControladorCliente implements ActionListener {
                 c.setRptdni(vistaCrud.txtDniRpt.getText());
                 c.setRuc(vistaCrud.txtRuc.getText());
                 c.setTelefono(vistaCrud.txtTelefono.getText());
-                clienteDao.registrar(c);
                 
-                LlenarTabla(vistaCrud.DataClientes);
+                if(vistaCrud.txtRazon.getText().isEmpty()){
+                JOptionPane.showMessageDialog(vistaCrud,"Campo necesario vacio");
+                }else{
+                clienteDao.registrar(c);
+                 LlenarTabla(vistaCrud.DataClientes);
                 JOptionPane.showMessageDialog(vistaCrud,"Se registro un cliente");
+                }
+                
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(vistaCrud,ex.getMessage());
                 Logger.getLogger(ControladorCliente.class.getName()).log(Level.SEVERE, null, ex);

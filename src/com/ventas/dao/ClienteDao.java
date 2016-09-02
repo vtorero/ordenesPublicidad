@@ -63,6 +63,7 @@ public List<Cliente> listar() throws Exception{
            }
        } catch (Exception e) {
            throw e;
+           
              
        }
        finally{

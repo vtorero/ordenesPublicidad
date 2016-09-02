@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/OrdenesPublicidad/src/com/ordenes/vista/frmPrincipal.java</file>
-            <file>file:/D:/OrdenesPublicidad/src/com/ventas/dao/Dao.java</file>
-            <file>file:/D:/OrdenesPublicidad/src/com/ordenes/vista/frmClientes.java</file>
+            <file>file:/D:/ordenesPublicidad/src/com/ventas/dao/Dao.java</file>
+            <file>file:/D:/ordenesPublicidad/src/com/ordenes/controller/ControladorCliente.java</file>
+            <file>file:/D:/ordenesPublicidad/src/com/ordenes/vista/frmPrincipal.java</file>
+            <file>file:/D:/ordenesPublicidad/src/com/ordenes/vista/frmClientes.java</file>
+            <file>file:/D:/ordenesPublicidad/src/com/ordenes/modelo/Cliente.java</file>
+            <file>file:/D:/ordenesPublicidad/src/com/ventas/dao/ClienteDao.java</file>
         </group>
     </open-files>
 </project-private>

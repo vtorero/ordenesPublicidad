@@ -21,6 +21,7 @@ public class Dao {
            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenespublicidad?user=root");
            
        } catch (Exception e) {
+           
            throw e;
        }
    }
