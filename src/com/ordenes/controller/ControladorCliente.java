@@ -69,7 +69,7 @@ public class ControladorCliente implements ActionListener {
                 c.setRuc(vistaCrud.txtRuc.getText());
                 c.setTelefono(vistaCrud.txtTelefono.getText());
                 
-                if(vistaCrud.txtRazon.getText().isEmpty()){
+                if(vistaCrud.txtRazon.getText().isEmpty() || vistaCrud.txtContacto.getText().isEmpty() || vistaCrud.txtRepresentante.getText().isEmpty()){
                 JOptionPane.showMessageDialog(vistaCrud,"Campo necesario vacio");
                 }else{
                 clienteDao.registrar(c);
