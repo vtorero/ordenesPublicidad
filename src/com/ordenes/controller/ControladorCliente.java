@@ -29,6 +29,9 @@ public class ControladorCliente implements ActionListener {
        this.clienteDao=clienteDao;
       this.vistaCrud.botonregistrar.addActionListener(this);
       this.vistaCrud.botonnmuevo.addActionListener(this);
+      this.vistaCrud.botonEditar.addActionListener(this);
+      this.vistaCrud.botonEliminar.addActionListener(this);
+      
     }
     
     public void InicializarCrud(){
