@@ -250,6 +250,8 @@ public class frmClientes extends javax.swing.JInternalFrame {
         botonnmuevo.getAccessibleContext().setAccessibleName("");
         botonnmuevo.getAccessibleContext().setAccessibleDescription("");
 
+        txtBuscar.setName("txtBuscar"); // NOI18N
+
         jLabel9.setText("Buscar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -326,7 +328,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField txtBuscar;
+    public javax.swing.JTextField txtBuscar;
     public javax.swing.JTextField txtContacto;
     public javax.swing.JTextArea txtDireccionRpt;
     public javax.swing.JTextField txtDniRpt;
