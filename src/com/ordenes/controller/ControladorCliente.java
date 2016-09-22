@@ -10,6 +10,8 @@ import com.ordenes.vista.frmClientes;
 import com.ventas.dao.ClienteDao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -20,17 +22,19 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author vjimenez
  */
-public class ControladorCliente implements ActionListener {
+public class ControladorCliente implements ActionListener,KeyListener {
     frmClientes vistaCrud= new frmClientes();
     ClienteDao clienteDao = new ClienteDao();
     
     public ControladorCliente(frmClientes vistaCrud,ClienteDao clienteDao){
-       this.vistaCrud=vistaCrud; 
-       this.clienteDao=clienteDao;
+      this.vistaCrud=vistaCrud; 
+      this.clienteDao=clienteDao;
       this.vistaCrud.botonregistrar.addActionListener(this);
       this.vistaCrud.botonnmuevo.addActionListener(this);
       this.vistaCrud.botonEditar.addActionListener(this);
       this.vistaCrud.botonEliminar.addActionListener(this);
+      //this.vistaCrud.txtDniRpt.addKeyListener(this);
+      this.vistaCrud.txtBuscar.addKeyListener(this);
       
     }
     
@@ -87,10 +91,34 @@ public class ControladorCliente implements ActionListener {
             //JOptionPane.showMessageDialog(vistaCrud,"eee");
             
         }
-        if(e.getSource() == vistaCrud.DataClientes){
-            
-        JOptionPane.showMessageDialog(vistaCrud,"eee");
+        if(e.getSource() == vistaCrud.botonEditar){
+        int filaEdit = vistaCrud.DataClientes.getSelectedRow();
+        int filaCount = vistaCrud.DataClientes.getSelectedRowCount();
+        
+        if(filaEdit>=0 && filaCount==1){
+          vistaCrud.txtRazon.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 0)));
+          vistaCrud.botonregistrar.setEnabled(false);
+        }else{
+        
+        JOptionPane.showMessageDialog(vistaCrud,"Debe seleccionar un cliente");
+        }
+        
 
     }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

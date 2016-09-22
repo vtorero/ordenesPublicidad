@@ -73,7 +73,30 @@ public List<Cliente> listar() throws Exception{
    }
             
                    
-
+public void modificar(Cliente cli) throws Exception{
+       try {
+       this.Conectar();
+           PreparedStatement st = this.getCn().prepareStatement("UPDATE ord_clientes SET RAZON_SOCIAL=?,CONTACTO=?,RPT_LEGAL=?,RPT_DNI=?,RPT_DIRECCION=?,RUC=?" +
+            ",DIRECCION=?,TELEFONO=? WHERE C_CLIENTE = ?");
+           st.setString(1, cli.getRazonsocial());
+           st.setString(2,cli.getContacto());
+           st.setString(3, cli.getRptlegal());
+           st.setString(4, cli.getRptdni());
+           st.setString(5, cli.getRptdireccion());
+           st.setString(6, cli.getRuc());
+           st.setString(7, cli.getDireccion());
+           st.setString(8, cli.getTelefono());
+           st.setString(9,cli.getC_cliente());
+           st.executeUpdate();
+       } catch (Exception e) {
+   
+        throw e;
+       }finally{
+           this.Cerrar();
+        
+       }
+   
+   } 
            
 
     public void eliminar(Cliente cli) throws Exception{
