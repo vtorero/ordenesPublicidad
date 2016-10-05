@@ -47,21 +47,23 @@ public class ControladorCliente implements ActionListener,KeyListener {
         modeloT.addColumn("Código");
         modeloT.addColumn("Razon Social");
         modeloT.addColumn("Contácto");
+        modeloT.addColumn("Representante");
        modeloT.addColumn("DNI");
         modeloT.addColumn("Ruc");
         modeloT.addColumn("Telefono");
         modeloT.addColumn("Dirección");
-        Object[] columna = new Object[7];
+        Object[] columna = new Object[8];
         int numRegistros = clienteDao.listar().size();
        
         for (int i = 0; i < numRegistros; i++) {
             columna[0] = clienteDao.listar().get(i).getC_cliente();
             columna[1] = clienteDao.listar().get(i).getRazonsocial();
             columna[2] = clienteDao.listar().get(i).getContacto();
-            columna[3] = clienteDao.listar().get(i).getRptdni();
-            columna[4] = clienteDao.listar().get(i).getRuc();
-            columna[5] = clienteDao.listar().get(i).getTelefono();
-            columna[6] = clienteDao.listar().get(i).getDireccion();
+            columna[3] = clienteDao.listar().get(i).getRptlegal();
+            columna[4] = clienteDao.listar().get(i).getRptdni();
+            columna[5] = clienteDao.listar().get(i).getRuc();
+            columna[6] = clienteDao.listar().get(i).getTelefono();
+            columna[7] = clienteDao.listar().get(i).getDireccion();
             modeloT.addRow(columna);
         }
     
@@ -102,7 +104,12 @@ public class ControladorCliente implements ActionListener,KeyListener {
         int filaCount = vistaCrud.DataClientes.getSelectedRowCount();
         
         if(filaEdit>=0 && filaCount==1){
-          vistaCrud.txtRazon.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 0)));
+          vistaCrud.txtCodigo.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 0)));
+          vistaCrud.txtRazon.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 1)));
+          vistaCrud.txtContacto.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 2)));
+          vistaCrud.txtRepresentante.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 3)));
+          vistaCrud.txtDniRpt.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 4)));
+          vistaCrud.txtDniRpt.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 4)));
           vistaCrud.botonregistrar.setEnabled(false);
           vistaCrud.botonEditar.setText("Guardar");
         }else{

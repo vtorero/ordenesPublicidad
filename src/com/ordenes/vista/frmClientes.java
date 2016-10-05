@@ -68,6 +68,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         setTitle("Mantenimiento de Clientes");
         setToolTipText("");
         setName(""); // NOI18N
+        setVisible(true);
 
         DataClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -151,6 +152,8 @@ public class frmClientes extends javax.swing.JInternalFrame {
         });
 
         label_codigo.setText("Código");
+
+        txtCodigo.setEnabled(false);
 
         javax.swing.GroupLayout contenedorLayout = new javax.swing.GroupLayout(contenedor);
         contenedor.setLayout(contenedorLayout);
@@ -338,9 +341,9 @@ public class frmClientes extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JTextArea jTextArea2;
-    private javax.swing.JLabel label_codigo;
+    public javax.swing.JLabel label_codigo;
     public javax.swing.JTextField txtBuscar;
-    private javax.swing.JTextField txtCodigo;
+    public javax.swing.JTextField txtCodigo;
     public javax.swing.JTextField txtContacto;
     public javax.swing.JTextArea txtDireccionRpt;
     public javax.swing.JTextField txtDniRpt;
