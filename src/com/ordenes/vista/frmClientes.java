@@ -50,7 +50,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         txtRuc = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtDireccion = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
         botonregistrar = new javax.swing.JButton();
@@ -72,13 +72,13 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
         DataClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Razon Social", "Contácto", "Representante", "DNI", "Ruc", "Telefono", "Dirección"
+                "Código", "Razon Social", "Contácto", "Representante", "DNI", "Rpt Dirección", "Ruc", "Dirección", "Telefono"
             }
         ));
         jScrollPane1.setViewportView(DataClientes);
@@ -115,9 +115,9 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Dirección:");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane3.setViewportView(jTextArea2);
+        txtDireccion.setColumns(20);
+        txtDireccion.setRows(5);
+        jScrollPane3.setViewportView(txtDireccion);
 
         jLabel8.setText("Teléfono:");
 
@@ -340,11 +340,11 @@ public class frmClientes extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    public javax.swing.JTextArea jTextArea2;
     public javax.swing.JLabel label_codigo;
     public javax.swing.JTextField txtBuscar;
     public javax.swing.JTextField txtCodigo;
     public javax.swing.JTextField txtContacto;
+    public javax.swing.JTextArea txtDireccion;
     public javax.swing.JTextArea txtDireccionRpt;
     public javax.swing.JTextField txtDniRpt;
     public javax.swing.JTextField txtRazon;

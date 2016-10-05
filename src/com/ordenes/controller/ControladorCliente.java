@@ -49,10 +49,11 @@ public class ControladorCliente implements ActionListener,KeyListener {
         modeloT.addColumn("Contácto");
         modeloT.addColumn("Representante");
        modeloT.addColumn("DNI");
+       modeloT.addColumn("Rpt Dirección");
         modeloT.addColumn("Ruc");
-        modeloT.addColumn("Telefono");
         modeloT.addColumn("Dirección");
-        Object[] columna = new Object[8];
+        modeloT.addColumn("Telefono");
+        Object[] columna = new Object[9];
         int numRegistros = clienteDao.listar().size();
        
         for (int i = 0; i < numRegistros; i++) {
@@ -61,9 +62,10 @@ public class ControladorCliente implements ActionListener,KeyListener {
             columna[2] = clienteDao.listar().get(i).getContacto();
             columna[3] = clienteDao.listar().get(i).getRptlegal();
             columna[4] = clienteDao.listar().get(i).getRptdni();
-            columna[5] = clienteDao.listar().get(i).getRuc();
-            columna[6] = clienteDao.listar().get(i).getTelefono();
+            columna[5] = clienteDao.listar().get(i).getRptdireccion();
+            columna[6] = clienteDao.listar().get(i).getRuc();
             columna[7] = clienteDao.listar().get(i).getDireccion();
+            columna[8] = clienteDao.listar().get(i).getTelefono();
             modeloT.addRow(columna);
         }
     
@@ -109,7 +111,10 @@ public class ControladorCliente implements ActionListener,KeyListener {
           vistaCrud.txtContacto.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 2)));
           vistaCrud.txtRepresentante.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 3)));
           vistaCrud.txtDniRpt.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 4)));
-          vistaCrud.txtDniRpt.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 4)));
+          vistaCrud.txtDireccionRpt.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 5)));
+          vistaCrud.txtRuc.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 6)));
+          vistaCrud.txtDireccion.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 7)));
+          vistaCrud.txtTelefono.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 8)));
           vistaCrud.botonregistrar.setEnabled(false);
           vistaCrud.botonEditar.setText("Guardar");
         }else{
