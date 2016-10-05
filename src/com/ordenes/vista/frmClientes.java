@@ -57,7 +57,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         botonEliminar = new javax.swing.JButton();
         botonEditar = new javax.swing.JButton();
         botonnmuevo = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnListar = new javax.swing.JButton();
         label_codigo = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         txtBuscar = new javax.swing.JTextField();
@@ -137,6 +137,11 @@ public class frmClientes extends javax.swing.JInternalFrame {
         });
 
         botonEliminar.setText("Eliminar");
+        botonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEliminarActionPerformed(evt);
+            }
+        });
 
         botonEditar.setText("Editar");
         botonEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -148,10 +153,10 @@ public class frmClientes extends javax.swing.JInternalFrame {
         botonnmuevo.setText("Nuevo");
         botonnmuevo.setName("btn_nuevo"); // NOI18N
 
-        jButton1.setText("Listar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnListar.setText("Listar");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnListarActionPerformed(evt);
             }
         });
 
@@ -201,7 +206,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(botonEditar)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addComponent(txtCodigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
@@ -256,7 +261,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
                     .addComponent(botonEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botonregistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botonnmuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1))
+                    .addComponent(btnListar))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -317,7 +322,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_botonregistrarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
        frmClientes frm = new frmClientes();
         ClienteDao clie = new ClienteDao();
         ControladorCliente control = new ControladorCliente(frm, clie);
@@ -326,7 +331,11 @@ public class frmClientes extends javax.swing.JInternalFrame {
         } catch (Exception ex) {
             Logger.getLogger(frmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnListarActionPerformed
+
+    private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonEliminarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTable DataClientes;
@@ -334,8 +343,8 @@ public class frmClientes extends javax.swing.JInternalFrame {
     public javax.swing.JButton botonEliminar;
     public javax.swing.JButton botonnmuevo;
     public javax.swing.JButton botonregistrar;
+    public javax.swing.JButton btnListar;
     private javax.swing.JPanel contenedor;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -115,8 +115,11 @@ public class ControladorCliente implements ActionListener,KeyListener {
           vistaCrud.txtRuc.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 6)));
           vistaCrud.txtDireccion.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 7)));
           vistaCrud.txtTelefono.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 8)));
-          vistaCrud.botonregistrar.setEnabled(false);
-          vistaCrud.botonEditar.setText("Guardar");
+          vistaCrud.botonEditar.setEnabled(false);
+          vistaCrud.botonEliminar.setEnabled(false);
+          vistaCrud.botonnmuevo.setEnabled(false);
+          vistaCrud.btnListar.setEnabled(false);
+          vistaCrud.botonregistrar.setText("Guardar");
         }else{
         
         JOptionPane.showMessageDialog(vistaCrud,"Debe seleccionar un cliente");
@@ -124,6 +127,11 @@ public class ControladorCliente implements ActionListener,KeyListener {
         
 
     }
+       if(e.getSource()==vistaCrud.botonregistrar){
+         
+       
+       }
+        
     }
 
     @Override
