@@ -44,18 +44,24 @@ public class ControladorCliente implements ActionListener,KeyListener {
     public void LlenarTabla(JTable tablaD) throws Exception{
         DefaultTableModel modeloT = new DefaultTableModel();
         tablaD.setModel(modeloT);
+        modeloT.addColumn("Código");
         modeloT.addColumn("Razon Social");
+        modeloT.addColumn("Contácto");
+       modeloT.addColumn("DNI");
         modeloT.addColumn("Ruc");
         modeloT.addColumn("Telefono");
         modeloT.addColumn("Dirección");
-        Object[] columna = new Object[5];
+        Object[] columna = new Object[7];
         int numRegistros = clienteDao.listar().size();
        
         for (int i = 0; i < numRegistros; i++) {
-            columna[0] = clienteDao.listar().get(i).getRazonsocial();
-            columna[1] = clienteDao.listar().get(i).getRuc();
-            columna[2] = clienteDao.listar().get(i).getTelefono();
-            columna[3] = clienteDao.listar().get(i).getDireccion();
+            columna[0] = clienteDao.listar().get(i).getC_cliente();
+            columna[1] = clienteDao.listar().get(i).getRazonsocial();
+            columna[2] = clienteDao.listar().get(i).getContacto();
+            columna[3] = clienteDao.listar().get(i).getRptdni();
+            columna[4] = clienteDao.listar().get(i).getRuc();
+            columna[5] = clienteDao.listar().get(i).getTelefono();
+            columna[6] = clienteDao.listar().get(i).getDireccion();
             modeloT.addRow(columna);
         }
     
@@ -98,6 +104,7 @@ public class ControladorCliente implements ActionListener,KeyListener {
         if(filaEdit>=0 && filaCount==1){
           vistaCrud.txtRazon.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 0)));
           vistaCrud.botonregistrar.setEnabled(false);
+          vistaCrud.botonEditar.setText("Guardar");
         }else{
         
         JOptionPane.showMessageDialog(vistaCrud,"Debe seleccionar un cliente");
