@@ -33,8 +33,11 @@ public class ControladorCliente implements ActionListener,KeyListener {
       this.vistaCrud.botonnmuevo.addActionListener(this);
       this.vistaCrud.botonEditar.addActionListener(this);
       this.vistaCrud.botonEliminar.addActionListener(this);
-      //this.vistaCrud.txtDniRpt.addKeyListener(this);
+      this.vistaCrud.txtDniRpt.addKeyListener(this);
+      this.vistaCrud.txtContacto.addKeyListener(this);
+      this.vistaCrud.txtRazon.addKeyListener(this);
       this.vistaCrud.txtBuscar.addKeyListener(this);
+      this.vistaCrud.txtTelefono.addKeyListener(this);
       
     }
     
@@ -136,7 +139,19 @@ public class ControladorCliente implements ActionListener,KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(e.getSource() == vistaCrud.txtDniRpt || e.getSource()==vistaCrud.txtRuc || e.getSource()== vistaCrud.txtTelefono){
+            char c = e.getKeyChar();
+            if(c<'0' || c>'9'){
+                e.consume();
+            }
+        }
+        
+        if(e.getSource() == vistaCrud.txtContacto || e.getSource() == vistaCrud.txtRepresentante || e.getSource() == vistaCrud.txtRazon){
+            char c = e.getKeyChar();
+            if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c!=(char)KeyEvent.VK_SPACE)){
+                e.consume();
+            }
+        }
     }
 
     @Override
