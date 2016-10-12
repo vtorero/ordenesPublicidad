@@ -8,6 +8,7 @@ package com.ordenes.controller;
 import com.ordenes.modelo.Cliente;
 import com.ordenes.vista.frmClientes;
 import com.ventas.dao.ClienteDao;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -17,6 +18,8 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.DefaultEditorKit;
+import sun.awt.AWTAccessor;
 
 /**
  *
@@ -25,6 +28,7 @@ import javax.swing.table.DefaultTableModel;
 public class ControladorCliente implements ActionListener,KeyListener {
     frmClientes vistaCrud= new frmClientes();
     ClienteDao clienteDao = new ClienteDao();
+    int DniLenght = 7;
     
     public ControladorCliente(frmClientes vistaCrud,ClienteDao clienteDao){
       this.vistaCrud=vistaCrud; 
@@ -33,11 +37,14 @@ public class ControladorCliente implements ActionListener,KeyListener {
       this.vistaCrud.botonnmuevo.addActionListener(this);
       this.vistaCrud.botonEditar.addActionListener(this);
       this.vistaCrud.botonEliminar.addActionListener(this);
+      /*para escuchar el tipeo */
       this.vistaCrud.txtDniRpt.addKeyListener(this);
       this.vistaCrud.txtContacto.addKeyListener(this);
+      this.vistaCrud.txtRepresentante.addKeyListener(this);
       this.vistaCrud.txtRazon.addKeyListener(this);
       this.vistaCrud.txtBuscar.addKeyListener(this);
       this.vistaCrud.txtTelefono.addKeyListener(this);
+      this.vistaCrud.txtRuc.addKeyListener(this);
       
     }
     
@@ -124,8 +131,7 @@ public class ControladorCliente implements ActionListener,KeyListener {
           vistaCrud.btnListar.setEnabled(false);
           vistaCrud.botonregistrar.setText("Guardar");
         }else{
-        
-        JOptionPane.showMessageDialog(vistaCrud,"Debe seleccionar un cliente");
+                JOptionPane.showMessageDialog(vistaCrud,"Debe seleccionar un cliente");
         }
         
 
@@ -139,25 +145,39 @@ public class ControladorCliente implements ActionListener,KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        if(e.getSource() == vistaCrud.txtDniRpt || e.getSource()==vistaCrud.txtRuc || e.getSource()== vistaCrud.txtTelefono){
-            char c = e.getKeyChar();
-            if(c<'0' || c>'9'){
-                e.consume();
-            }
+        if(e.getSource() == vistaCrud.txtDniRpt){
+                if(vistaCrud.txtDniRpt.getText().length()>DniLenght){
+                 Toolkit.getDefaultToolkit().beep();
+                 JOptionPane.showMessageDialog(vistaCrud, "El DNI es de máximo 8 caracteres");
+                  e.consume();
+                }
         }
         
-        if(e.getSource() == vistaCrud.txtContacto || e.getSource() == vistaCrud.txtRepresentante || e.getSource() == vistaCrud.txtRazon){
-            char c = e.getKeyChar();
-            if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c!=(char)KeyEvent.VK_SPACE)){
-                e.consume();
+        if(e.getSource() == vistaCrud.txtDniRpt || e.getSource()==vistaCrud.txtRuc || e.getSource()== vistaCrud.txtTelefono){
+        char c = e.getKeyChar();
+        if((c<'0' || c>'9') && (c!=(char)KeyEvent.VK_BACK_SPACE) && (c!=(char)KeyEvent.VK_DELETE) && (c!=(char)KeyEvent.VK_ENTER))
+        {
+            Toolkit.getDefaultToolkit().beep();
+            e.consume();
+            JOptionPane.showMessageDialog(vistaCrud, "Este campo solo permite números");
+        }
+    }
+       
+        if(e.getSource() == vistaCrud.txtRazon || e.getSource() == vistaCrud.txtContacto || e.getSource() == vistaCrud.txtRepresentante){
+             char c = e.getKeyChar();
+            if((c<'a' || c>'z') && (c<'A' || c>'Z' || c=='Ñ' || c=='ñ') && (c!=(char)KeyEvent.VK_SPACE) && (c!=(char)KeyEvent.VK_BACK_SPACE) && (c!=(char)KeyEvent.VK_DELETE) && (c!=(char)KeyEvent.VK_ENTER)){
+                  Toolkit.getDefaultToolkit().beep();
+                  e.consume();
+                  JOptionPane.showMessageDialog(vistaCrud, "Este campo solo permite letras");
+                
             }
         }
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
+}
 
     @Override
     public void keyReleased(KeyEvent e) {
