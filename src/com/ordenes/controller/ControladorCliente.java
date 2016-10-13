@@ -84,7 +84,7 @@ public class ControladorCliente implements ActionListener,KeyListener {
     
     @Override
     public void actionPerformed(ActionEvent e){
-        if(e.getSource() == vistaCrud.botonregistrar){
+        if(e.getSource() == vistaCrud.botonregistrar && vistaCrud.botonregistrar.getText().equals("Registrar")){
             try {
                 Cliente c = new Cliente();
                 
@@ -94,6 +94,7 @@ public class ControladorCliente implements ActionListener,KeyListener {
                 c.setRptdireccion(vistaCrud.txtDireccionRpt.getText());
                 c.setRptdni(vistaCrud.txtDniRpt.getText());
                 c.setRuc(vistaCrud.txtRuc.getText());
+                c.setDireccion(vistaCrud.txtDireccion.getText());
                 c.setTelefono(vistaCrud.txtTelefono.getText());
                 
                 if(vistaCrud.txtRazon.getText().isEmpty() || vistaCrud.txtContacto.getText().isEmpty() || vistaCrud.txtRepresentante.getText().isEmpty()){
@@ -101,6 +102,7 @@ public class ControladorCliente implements ActionListener,KeyListener {
                 }else{
                 clienteDao.registrar(c);
                  LlenarTabla(vistaCrud.DataClientes);
+                 
                 JOptionPane.showMessageDialog(vistaCrud,"Se registro un cliente");
                 }
                 
@@ -111,6 +113,37 @@ public class ControladorCliente implements ActionListener,KeyListener {
             //JOptionPane.showMessageDialog(vistaCrud,"eee");
             
         }
+                if(e.getSource() == vistaCrud.botonregistrar && vistaCrud.botonregistrar.getText().equals("Guardar")){
+            try {
+                Cliente c = new Cliente();
+                c.setC_cliente(vistaCrud.txtCodigo.getText());
+                c.setRazonsocial(vistaCrud.txtRazon.getText());
+                c.setContacto(vistaCrud.txtContacto.getText());
+                c.setRptlegal(vistaCrud.txtRepresentante.getText());
+                c.setRptdireccion(vistaCrud.txtDireccionRpt.getText());
+                c.setRptdni(vistaCrud.txtDniRpt.getText());
+                c.setDireccion(vistaCrud.txtDireccion.getText());
+                c.setRuc(vistaCrud.txtRuc.getText());
+                c.setTelefono(vistaCrud.txtTelefono.getText());
+                
+                if(vistaCrud.txtRazon.getText().isEmpty() || vistaCrud.txtContacto.getText().isEmpty() || vistaCrud.txtRepresentante.getText().isEmpty()){
+                JOptionPane.showMessageDialog(vistaCrud,"Campo necesario vacio");
+                }else{
+                clienteDao.modificar(c);
+                LlenarTabla(vistaCrud.DataClientes);
+                enabledButton();
+                JOptionPane.showMessageDialog(vistaCrud,"Se actualizó el cliente " + c.getC_cliente());
+                
+                }
+                
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(vistaCrud,ex.getMessage());
+                Logger.getLogger(ControladorCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            //JOptionPane.showMessageDialog(vistaCrud,"eee");
+            
+        }
+        
         if(e.getSource() == vistaCrud.botonEditar){
         int filaEdit = vistaCrud.DataClientes.getSelectedRow();
         int filaCount = vistaCrud.DataClientes.getSelectedRowCount();
@@ -125,11 +158,7 @@ public class ControladorCliente implements ActionListener,KeyListener {
           vistaCrud.txtRuc.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 6)));
           vistaCrud.txtDireccion.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 7)));
           vistaCrud.txtTelefono.setText(String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 8)));
-          vistaCrud.botonEditar.setEnabled(false);
-          vistaCrud.botonEliminar.setEnabled(false);
-          vistaCrud.botonnmuevo.setEnabled(false);
-          vistaCrud.btnListar.setEnabled(false);
-          vistaCrud.botonregistrar.setText("Guardar");
+            disabledButton();
         }else{
                 JOptionPane.showMessageDialog(vistaCrud,"Debe seleccionar un cliente");
         }
@@ -142,6 +171,22 @@ public class ControladorCliente implements ActionListener,KeyListener {
        }
         
     }
+    
+   private void enabledButton(){
+                vistaCrud.botonEditar.setEnabled(true);
+                vistaCrud.botonEliminar.setEnabled(true);
+                vistaCrud.botonnmuevo.setEnabled(true);
+                vistaCrud.btnListar.setEnabled(true);
+                vistaCrud.botonregistrar.setText("Registrar");
+   }
+   
+   private void disabledButton(){
+          vistaCrud.botonEditar.setEnabled(false);
+          vistaCrud.botonEliminar.setEnabled(false);
+          vistaCrud.botonnmuevo.setEnabled(false);
+          vistaCrud.btnListar.setEnabled(false);
+          vistaCrud.botonregistrar.setText("Guardar");
+}
 
     @Override
     public void keyTyped(KeyEvent e) {
