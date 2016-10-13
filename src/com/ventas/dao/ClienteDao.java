@@ -104,7 +104,7 @@ public int modificar(Cliente c) throws Exception{
     public void eliminar(Cliente cli) throws Exception{
        try {
        this.Conectar();
-           PreparedStatement st = this.getCn().prepareStatement("DELETE FROM ord_cliente  WHERE C_CLIENTE = ?");
+           PreparedStatement st = this.getCn().prepareStatement("DELETE FROM ord_clientes  WHERE C_CLIENTE = ?");
           st.setString(1,cli.getC_cliente());
            st.executeUpdate();
        } catch (Exception e) {

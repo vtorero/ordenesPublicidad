@@ -86,17 +86,7 @@ public class ControladorCliente implements ActionListener,KeyListener {
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == vistaCrud.botonregistrar && vistaCrud.botonregistrar.getText().equals("Registrar")){
             try {
-                Cliente c = new Cliente();
-                
-                c.setRazonsocial(vistaCrud.txtRazon.getText());
-                c.setContacto(vistaCrud.txtContacto.getText());
-                c.setRptlegal(vistaCrud.txtRepresentante.getText());
-                c.setRptdireccion(vistaCrud.txtDireccionRpt.getText());
-                c.setRptdni(vistaCrud.txtDniRpt.getText());
-                c.setRuc(vistaCrud.txtRuc.getText());
-                c.setDireccion(vistaCrud.txtDireccion.getText());
-                c.setTelefono(vistaCrud.txtTelefono.getText());
-                
+                Cliente c = getDataCliente();
                 if(vistaCrud.txtRazon.getText().isEmpty() || vistaCrud.txtContacto.getText().isEmpty() || vistaCrud.txtRepresentante.getText().isEmpty()){
                 JOptionPane.showMessageDialog(vistaCrud,"Campo necesario vacio");
                 }else{
@@ -115,20 +105,10 @@ public class ControladorCliente implements ActionListener,KeyListener {
         }
                 if(e.getSource() == vistaCrud.botonregistrar && vistaCrud.botonregistrar.getText().equals("Guardar")){
             try {
-                Cliente c = new Cliente();
-                c.setC_cliente(vistaCrud.txtCodigo.getText());
-                c.setRazonsocial(vistaCrud.txtRazon.getText());
-                c.setContacto(vistaCrud.txtContacto.getText());
-                c.setRptlegal(vistaCrud.txtRepresentante.getText());
-                c.setRptdireccion(vistaCrud.txtDireccionRpt.getText());
-                c.setRptdni(vistaCrud.txtDniRpt.getText());
-                c.setDireccion(vistaCrud.txtDireccion.getText());
-                c.setRuc(vistaCrud.txtRuc.getText());
-                c.setTelefono(vistaCrud.txtTelefono.getText());
-                
                 if(vistaCrud.txtRazon.getText().isEmpty() || vistaCrud.txtContacto.getText().isEmpty() || vistaCrud.txtRepresentante.getText().isEmpty()){
                 JOptionPane.showMessageDialog(vistaCrud,"Campo necesario vacio");
                 }else{
+                Cliente c = getDataCliente();
                 clienteDao.modificar(c);
                 LlenarTabla(vistaCrud.DataClientes);
                 enabledButton();
@@ -143,6 +123,18 @@ public class ControladorCliente implements ActionListener,KeyListener {
             //JOptionPane.showMessageDialog(vistaCrud,"eee");
             
         }
+        
+                if(e.getSource()== vistaCrud.botonEliminar){
+                    try {
+                       Cliente c = getDataCliente();
+                       clienteDao.eliminar(c);
+                        JOptionPane.showMessageDialog(vistaCrud,"Se eliminó el cliente " + c.getC_cliente());
+                    } catch (Exception ex) {
+                        JOptionPane.showMessageDialog(vistaCrud,ex.getMessage());
+                    }
+                }
+                
+                
         
         if(e.getSource() == vistaCrud.botonEditar){
         int filaEdit = vistaCrud.DataClientes.getSelectedRow();
@@ -165,10 +157,7 @@ public class ControladorCliente implements ActionListener,KeyListener {
         
 
     }
-       if(e.getSource()==vistaCrud.botonregistrar){
-         
-       
-       }
+
         
     }
     
@@ -187,6 +176,21 @@ public class ControladorCliente implements ActionListener,KeyListener {
           vistaCrud.btnListar.setEnabled(false);
           vistaCrud.botonregistrar.setText("Guardar");
 }
+   
+  private Cliente getDataCliente(){
+                Cliente c = new Cliente();
+                c.setC_cliente(vistaCrud.txtCodigo.getText());
+                c.setRazonsocial(vistaCrud.txtRazon.getText());
+                c.setContacto(vistaCrud.txtContacto.getText());
+                c.setRptlegal(vistaCrud.txtRepresentante.getText());
+                c.setRptdireccion(vistaCrud.txtDireccionRpt.getText());
+                c.setRptdni(vistaCrud.txtDniRpt.getText());
+                c.setDireccion(vistaCrud.txtDireccion.getText());
+                c.setRuc(vistaCrud.txtRuc.getText());
+                c.setTelefono(vistaCrud.txtTelefono.getText());
+      
+      return c;
+  }
 
     @Override
     public void keyTyped(KeyEvent e) {
