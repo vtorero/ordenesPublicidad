@@ -188,11 +188,15 @@ public class ControladorCliente implements ActionListener,KeyListener {
    }
    
    private void disabledButton(){
+         
           vistaCrud.botonEditar.setEnabled(false);
           vistaCrud.botonEliminar.setEnabled(false);
           vistaCrud.botonnmuevo.setEnabled(false);
           vistaCrud.btnListar.setEnabled(false);
-          vistaCrud.botonregistrar.setText("Guardar");
+            if(vistaCrud.botonEditar.getText().equals("Registrar")) {
+            vistaCrud.botonregistrar.setText("Guardar");
+            vistaCrud.botonregistrar.setEnabled(true);
+            }
 }
    
   private Cliente getDataCliente(){
@@ -243,7 +247,7 @@ public class ControladorCliente implements ActionListener,KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+ throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 }
 
     @Override

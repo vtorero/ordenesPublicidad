@@ -5,12 +5,6 @@
  */
 package com.ordenes.vista;
 
-import com.ordenes.controller.ControladorCliente;
-import com.ventas.dao.ClienteDao;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author vjimenez
