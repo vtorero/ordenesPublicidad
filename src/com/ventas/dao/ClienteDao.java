@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -62,6 +63,7 @@ public List<Cliente> listar() throws Exception{
           lista.add(cli);
            }
        } catch (Exception e) {
+           
            throw e;
            
              
@@ -101,11 +103,11 @@ public int modificar(Cliente c) throws Exception{
    } 
            
 
-    public void eliminar(Cliente cli) throws Exception{
+    public void eliminar(String cli) throws Exception{
        try {
        this.Conectar();
            PreparedStatement st = this.getCn().prepareStatement("DELETE FROM ord_clientes  WHERE C_CLIENTE = ?");
-          st.setString(1,cli.getC_cliente());
+          st.setString(1,cli);
            st.executeUpdate();
        } catch (Exception e) {
        throw e;

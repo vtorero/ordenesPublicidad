@@ -13,13 +13,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.DefaultEditorKit;
-import sun.awt.AWTAccessor;
 
 /**
  *
@@ -37,7 +33,7 @@ public class ControladorCliente implements ActionListener,KeyListener {
       this.vistaCrud.botonnmuevo.addActionListener(this);
       this.vistaCrud.botonEditar.addActionListener(this);
       this.vistaCrud.botonEliminar.addActionListener(this);
-      /*para escuchar el tipeo */
+      this.vistaCrud.btnListar.addActionListener(this);
       this.vistaCrud.txtDniRpt.addKeyListener(this);
       this.vistaCrud.txtContacto.addKeyListener(this);
       this.vistaCrud.txtRepresentante.addKeyListener(this);
@@ -51,84 +47,106 @@ public class ControladorCliente implements ActionListener,KeyListener {
     public void InicializarCrud(){
     }
     
-    public void LlenarTabla(JTable tablaD) throws Exception{
-        DefaultTableModel modeloT = new DefaultTableModel();
-        tablaD.setModel(modeloT);
-        modeloT.addColumn("Código");
-        modeloT.addColumn("Razon Social");
-        modeloT.addColumn("Contácto");
-        modeloT.addColumn("Representante");
-       modeloT.addColumn("DNI");
-       modeloT.addColumn("Rpt Dirección");
-        modeloT.addColumn("Ruc");
-        modeloT.addColumn("Dirección");
-        modeloT.addColumn("Telefono");
-        Object[] columna = new Object[9];
-        int numRegistros = clienteDao.listar().size();
-       
-        for (int i = 0; i < numRegistros; i++) {
-            columna[0] = clienteDao.listar().get(i).getC_cliente();
-            columna[1] = clienteDao.listar().get(i).getRazonsocial();
-            columna[2] = clienteDao.listar().get(i).getContacto();
-            columna[3] = clienteDao.listar().get(i).getRptlegal();
-            columna[4] = clienteDao.listar().get(i).getRptdni();
-            columna[5] = clienteDao.listar().get(i).getRptdireccion();
-            columna[6] = clienteDao.listar().get(i).getRuc();
-            columna[7] = clienteDao.listar().get(i).getDireccion();
-            columna[8] = clienteDao.listar().get(i).getTelefono();
-            modeloT.addRow(columna);
+    public void LlenarTabla(JTable tablaD) throws Exception {
+        try { 
+            DefaultTableModel modeloT = new DefaultTableModel();
+            tablaD.setModel(modeloT);
+            modeloT.addColumn("Código");
+            modeloT.addColumn("Razon Social");
+            modeloT.addColumn("Contácto");
+            modeloT.addColumn("Representante");
+            modeloT.addColumn("DNI");
+            modeloT.addColumn("Rpt Dirección");
+            modeloT.addColumn("Ruc");
+            modeloT.addColumn("Dirección");
+            modeloT.addColumn("Telefono");
+            Object[] columna = new Object[9];
+            int numRegistros = clienteDao.listar().size();
+
+            for (int i = 0; i < numRegistros; i++) {
+                columna[0] = clienteDao.listar().get(i).getC_cliente();
+                columna[1] = clienteDao.listar().get(i).getRazonsocial();
+                columna[2] = clienteDao.listar().get(i).getContacto();
+                columna[3] = clienteDao.listar().get(i).getRptlegal();
+                columna[4] = clienteDao.listar().get(i).getRptdni();
+                columna[5] = clienteDao.listar().get(i).getRptdireccion();
+                columna[6] = clienteDao.listar().get(i).getRuc();
+                columna[7] = clienteDao.listar().get(i).getDireccion();
+                columna[8] = clienteDao.listar().get(i).getTelefono();
+                modeloT.addRow(columna);
+                }
+     
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(vistaCrud, e.getMessage());
         }
-    
-    
+         
     }
     
     @Override
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == vistaCrud.botonregistrar && vistaCrud.botonregistrar.getText().equals("Registrar")){
             try {
-                Cliente c = getDataCliente();
-                if(vistaCrud.txtRazon.getText().isEmpty() || vistaCrud.txtContacto.getText().isEmpty() || vistaCrud.txtRepresentante.getText().isEmpty()){
-                JOptionPane.showMessageDialog(vistaCrud,"Campo necesario vacio");
-                }else{
-                clienteDao.registrar(c);
-                 LlenarTabla(vistaCrud.DataClientes);
-                 
-                JOptionPane.showMessageDialog(vistaCrud,"Se registro un cliente");
+                        Cliente c = getDataCliente();
+                        if(vistaCrud.txtRazon.getText().isEmpty() || vistaCrud.txtContacto.getText().isEmpty() || vistaCrud.txtRepresentante.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(vistaCrud,"Campo necesario vacio");
+                        }else{
+                        clienteDao.registrar(c);
+                         LlenarTabla(vistaCrud.DataClientes);
+
+                        JOptionPane.showMessageDialog(vistaCrud,"Se registro un cliente");
                 }
                 
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(vistaCrud,ex.getMessage());
-                Logger.getLogger(ControladorCliente.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            //JOptionPane.showMessageDialog(vistaCrud,"eee");
+                }   catch (Exception ex) {
+                        
+                        JOptionPane.showMessageDialog(vistaCrud,ex.getMessage());
+                        
+                }
             
-        }
-                if(e.getSource() == vistaCrud.botonregistrar && vistaCrud.botonregistrar.getText().equals("Guardar")){
-            try {
-                if(vistaCrud.txtRazon.getText().isEmpty() || vistaCrud.txtContacto.getText().isEmpty() || vistaCrud.txtRepresentante.getText().isEmpty()){
-                JOptionPane.showMessageDialog(vistaCrud,"Campo necesario vacio");
-                }else{
-                Cliente c = getDataCliente();
-                clienteDao.modificar(c);
-                LlenarTabla(vistaCrud.DataClientes);
-                enabledButton();
-                JOptionPane.showMessageDialog(vistaCrud,"Se actualizó el cliente " + c.getC_cliente());
-                
-                }
-                
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(vistaCrud,ex.getMessage());
-                Logger.getLogger(ControladorCliente.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            //JOptionPane.showMessageDialog(vistaCrud,"eee");
             
         }
         
-                if(e.getSource()== vistaCrud.botonEliminar){
+        if(e.getSource() == vistaCrud.botonregistrar && vistaCrud.botonregistrar.getText().equals("Guardar")){
+            try {
+                        if(vistaCrud.txtRazon.getText().isEmpty() || vistaCrud.txtContacto.getText().isEmpty() || vistaCrud.txtRepresentante.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(vistaCrud,"Campo necesario vacio");
+                        }else{
+                        Cliente c = getDataCliente();
+                        clienteDao.modificar(c);
+                        LlenarTabla(vistaCrud.DataClientes);
+                        enabledButton();
+                        JOptionPane.showMessageDialog(vistaCrud,"Se actualizó el cliente " + c.getC_cliente());
+                
+                }
+                
+            } catch (Exception ex) {
+                        
+                JOptionPane.showMessageDialog(vistaCrud,ex.getMessage());
+                        
+            }
+            
+            
+        }
+                
+        if(e.getSource()==vistaCrud.btnListar){
+        
                     try {
-                       Cliente c = getDataCliente();
-                       clienteDao.eliminar(c);
-                        JOptionPane.showMessageDialog(vistaCrud,"Se eliminó el cliente " + c.getC_cliente());
+                        
+                        LlenarTabla(vistaCrud.DataClientes);
+                        
+                    } catch (Exception ex) {
+                        
+                        JOptionPane.showMessageDialog(vistaCrud, ex.getMessage());
+                    }
+
+                            }
+        
+        if(e.getSource()== vistaCrud.botonEliminar){
+                    try {
+                        int filaEdit = vistaCrud.DataClientes.getSelectedRow();
+                        String  codigo=String.valueOf(vistaCrud.DataClientes.getValueAt(filaEdit, 0));
+                        clienteDao.eliminar(codigo);
+                        LlenarTabla(vistaCrud.DataClientes);
+                         JOptionPane.showMessageDialog(vistaCrud,"Se eliminó el cliente " + codigo);
                     } catch (Exception ex) {
                         JOptionPane.showMessageDialog(vistaCrud,ex.getMessage());
                     }

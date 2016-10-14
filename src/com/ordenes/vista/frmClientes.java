@@ -9,6 +9,7 @@ import com.ordenes.controller.ControladorCliente;
 import com.ventas.dao.ClienteDao;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -324,14 +325,6 @@ public class frmClientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botonregistrarActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-       frmClientes frm = new frmClientes();
-        ClienteDao clie = new ClienteDao();
-        ControladorCliente control = new ControladorCliente(frm, clie);
-        try {
-            control.LlenarTabla(this.DataClientes);
-        } catch (Exception ex) {
-            Logger.getLogger(frmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
