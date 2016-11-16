@@ -124,7 +124,6 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
         botonregistrar.setMnemonic('R');
         botonregistrar.setText("Registrar");
-        botonregistrar.setEnabled(false);
         botonregistrar.setName("botonregistrar"); // NOI18N
         botonregistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
