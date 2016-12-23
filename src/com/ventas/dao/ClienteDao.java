@@ -46,7 +46,7 @@ public List<Cliente> listar() throws Exception{
    
        try {
            this.Conectar();
-           PreparedStatement st = this.getCn().prepareCall("SELECT C_CLIENTE,RAZON_SOCIAL,CONTACTO,RPT_LEGAL,RPT_DNI,RPT_DIRECCION,RUC,DIRECCION,TELEFONO,F_CREACION,USUARIO FROM ord_clientes");
+           PreparedStatement st = this.getCn().prepareCall("SELECT C_CLIENTE,RAZON_SOCIAL,CONTACTO,RPT_LEGAL,RPT_DNI,RPT_DIRECCION,RUC,DIRECCION,TELEFONO,F_CREACION,USUARIO FROM ORD_CLIENTES");
            rs = st.executeQuery();
            lista = new ArrayList<>();
            while(rs.next()){
@@ -80,7 +80,7 @@ public int modificar(Cliente c) throws Exception{
        try {
            
        this.Conectar();
-           PreparedStatement st = this.getCn().prepareStatement("UPDATE ord_clientes SET RAZON_SOCIAL=?,CONTACTO=?,RPT_LEGAL=?,RPT_DNI=?,RPT_DIRECCION=?,RUC=?" +
+           PreparedStatement st = this.getCn().prepareStatement("UPDATE ORD_CLIENTES SET RAZON_SOCIAL=?,CONTACTO=?,RPT_LEGAL=?,RPT_DNI=?,RPT_DIRECCION=?,RUC=?" +
             ",DIRECCION=?,TELEFONO=? WHERE C_CLIENTE = ?");
            st.setString(1,c.getRazonsocial());
            st.setString(2,c.getContacto());
@@ -106,7 +106,7 @@ public int modificar(Cliente c) throws Exception{
     public void eliminar(String cli) throws Exception{
        try {
        this.Conectar();
-           PreparedStatement st = this.getCn().prepareStatement("DELETE FROM ord_clientes  WHERE C_CLIENTE = ?");
+           PreparedStatement st = this.getCn().prepareStatement("DELETE FROM ORD_CLIENTES  WHERE C_CLIENTE = ?");
           st.setString(1,cli);
            st.executeUpdate();
        } catch (Exception e) {

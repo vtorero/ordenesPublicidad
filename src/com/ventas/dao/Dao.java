@@ -20,7 +20,7 @@ public class Dao {
            Class.forName("com.mysql.jdbc.Driver");
            
            //cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenespublicidad?user=root");
-           cn = DriverManager.getConnection("jdbc:mysql://cualesmiip.pe:3306/cualesmi_ordenes?user=cualesmi_web&password=vji2002");
+           cn = DriverManager.getConnection("jdbc:mysql://67.23.231.144:3306/cualesmi_ordenes?user=cualesmi_web&password=vji2002");
            
        } catch (Exception e) {
            
